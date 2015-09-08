@@ -1,0 +1,19 @@
+(page "index.html"
+      (:require [cljsjs.showdown]))
+
+;; (enable-console-print!)
+
+(html
+ (head
+  (title "Hoplon live markdown editor")
+  (link :rel "stylesheet" :href "../resources/css/basscss-full.css"))
+ (body
+  (div :class "flex flex-wrap" :style "height:100vh"
+       (let [initial-text "# Hi there!\n\n**Type** and *see*!\n\n    Live markdown preview!"
+             md-text (cell initial-text)
+             get-md-text #(.-value (.getElementById js/document "editor"))
+             conv (js/Showdown.converter.)
+             md-parsed (cell= (.makeHtml conv md-text))]
+         [(textarea :id "editor" :name "editor" :class "flex-auto col-6"
+                    :keyup #(reset! md-text (get-md-text)) initial-text)
+          (div :id "preview" :class "flex-auto col-6 p1 border-box overflow-auto" :html md-parsed)]))))
