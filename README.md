@@ -13,7 +13,7 @@ Uses:
 Clone the repo and run `boot dev`. This will compile the hoplon page down to cljs and that to js. Open `file:///path/to/cloned/repo/target/index.html` in your favorite browser. The boot task starts a reloadable environment so any changes you make to the code will be instantly visible in the browser.
 
 ## Screenshot
-![screenshot](../img/view.jpg)
+![screenshot](img/view.jpg)
 
 ## License (BSD3)
 Copyright (c) 2015, Peter Nagy 
